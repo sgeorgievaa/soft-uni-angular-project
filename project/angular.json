@@ -31,7 +31,16 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/browser.min.js",
+              "src/assets/js/util.js",
+              "src/assets/js/breakpoints.min.js",
+              "src/assets/js/jquery.scrolly.min.js",
+              "src/assets/js/jquery.scrollex.min.js",
+              "src/assets/js/jquery.dropotron.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -91,7 +100,16 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/browser.min.js",
+              "src/assets/js/util.js",
+              "src/assets/js/breakpoints.min.js",
+              "src/assets/js/jquery.scrolly.min.js",
+              "src/assets/js/jquery.scrollex.min.js",
+              "src/assets/js/jquery.dropotron.min.js",
+              "src/assets/js/main.js"
+            ]
           }
         }
       }
