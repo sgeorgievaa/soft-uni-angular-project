@@ -2,7 +2,8 @@
     <div class="auth-box">
       <h2>Register</h2>
   
-      <form>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
   
         <!-- Email -->
         <div class="form-group">
@@ -12,10 +13,23 @@
             id="email"
             name="email"
             placeholder="Enter your email"
+            ngModel
+          required
+          email
+          #inputEmail="ngModel"
           />
   
-          <p class="error">Email is required</p>
-          <p class="error">Invalid email format</p>
+          @if (inputEmail?.touched) {
+            <div>
+              @if (inputEmail?.errors?.['required']) {
+                <p class="error">Email is required!</p>
+              }
+  
+              @if (inputEmail?.errors?.['email']) {
+                <p class="error">Email is not valid!</p>
+              }
+            </div>
+          }
         </div>
   
         <!-- Password -->
@@ -26,10 +40,23 @@
             id="password"
             name="password"
             placeholder="Create a password"
+            ngModel
+          required
+          minlength="6"
+          #inputPassword="ngModel"
           />
   
-          <p class="error">Password is required</p>
-          <p class="error">Password must be at least 6 characters</p>
+          @if (inputPassword?.touched) {
+            <div>
+              @if (inputPassword?.errors?.['required']) {
+                <p class="error">Password is required!</p>
+              }
+  
+              @if (inputPassword?.errors?.['minlength']) {
+                <p class="error">Password must be at least 6 characters!</p>
+              }
+            </div>
+          }
         </div>
   
         <!-- Repeat Password -->
@@ -40,22 +67,36 @@
             id="rePass"
             name="rePass"
             placeholder="Repeat your password"
+            ngModel
+          required
+          #inputRePass="ngModel"
           />
   
-          <p class="error">Repeat password is required</p>
+          @if (inputRePass?.touched) {
+            <div>
+              @if (inputRePass?.errors?.['required']) {
+                <p class="error">Repeat password is required!</p>
+              }
+            </div>
+          }
         </div>
   
         <!-- Password mismatch -->
-        <p class="error">Passwords do not match</p>
+        @if (passwordMismatch) {
+            <p class="error">Passwords do not match!</p>
+          }
   
+          @if (errorMessage) {
+            <p class="error">{{ errorMessage }}</p>
+          }
         <!-- Submit -->
-        <button type="submit">Register</button>
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
   
       </form>
   
       <p class="switch">
         Already have an account?
-        <a href="/login">Login here</a>
+        <a routerLink="/login">Login here</a>
       </p>
     </div>
   </section>
