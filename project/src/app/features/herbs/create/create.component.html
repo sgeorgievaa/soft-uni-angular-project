@@ -1,1 +1,60 @@
-<p>create works!</p>
+<section class="create-container">
+    <div class="create-box">
+      <h2>Add New Herb</h2>
+  
+      <form>
+  
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">Herb Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter herb name"
+          />
+          <p class="error">Name is required</p>
+        </div>
+  
+        <!-- Image URL -->
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input
+            type="text"
+            id="imageUrl"
+            name="imageUrl"
+            placeholder="Enter image URL"
+          />
+          <p class="error">Image URL is required</p>
+        </div>
+  
+        <!-- Benefits -->
+        <div class="form-group">
+          <label for="benefits">Benefits</label>
+          <textarea
+            id="benefits"
+            name="benefits"
+            rows="4"
+            placeholder="Describe the benefits of this herb"
+          ></textarea>
+          <p class="error">Benefits are required</p>
+        </div>
+  
+        <!-- Usage -->
+        <div class="form-group">
+          <label for="usage">Usage</label>
+          <textarea
+            id="usage"
+            name="usage"
+            rows="4"
+            placeholder="How is this herb used?"
+          ></textarea>
+          <p class="error">Usage is required</p>
+        </div>
+  
+        <!-- Submit -->
+        <button type="submit">Add Herb</button>
+  
+      </form>
+    </div>
+  </section>
