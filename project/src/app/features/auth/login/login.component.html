@@ -1,45 +1,59 @@
 <section class="auth-container">
     <div class="auth-box">
-      <h2>Login</h2>
-  
-      <form>
-  
-        <!-- Email -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-          />
-  
-          <p class="error">Email is required</p>
-          <p class="error">Invalid email format</p>
-        </div>
-  
-        <!-- Password -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-          />
-  
-          <p class="error">Password is required</p>
-          <p class="error">Password must be at least 6 characters</p>
-        </div>
-  
-        <!-- Submit -->
-        <button type="submit">Login</button>
-  
-      </form>
-  
-      <p class="switch">
-        Don't have an account?
-        <a href="/register">Register here</a>
-      </p>
+        <h2>Login</h2>
+
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" ngModel required email
+                    #inputEmail="ngModel" />
+
+                @if (inputEmail?.touched) {
+                <div>
+                    @if (inputEmail?.errors?.['required']) {
+                    <p class="error">Email is required!</p>
+                    }
+
+                    @if (inputEmail?.errors?.['email']) {
+                    <p class="error">Email is not valid!</p>
+                    }
+                </div>
+                }
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" ngModel required
+                    minlength="6" #inputPassword="ngModel" />
+
+                    @if (inputPassword?.touched) {
+                        <div>
+                          @if (inputPassword?.errors?.['required']) {
+                            <p class="error">Password is required!</p>
+                          }
+              
+                          @if (inputPassword?.errors?.['minlength']) {
+                            <p class="error">Password must be at least 6 characters!</p>
+                          }
+                        </div>
+                      }
+            </div>
+
+            @if (errorMessage) {
+                <p class="error">{{ errorMessage }}</p>
+            }
+
+            <!-- Submit -->
+            <button type="submit">Login</button>
+
+        </form>
+
+        <p class="switch">
+            Don't have an account?
+            <a href="/register">Register here</a>
+        </p>
     </div>
-  </section>
+</section>
