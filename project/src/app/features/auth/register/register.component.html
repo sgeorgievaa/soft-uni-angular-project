@@ -1,1 +1,61 @@
-<p>register works!</p>
+<section class="auth-container">
+    <div class="auth-box">
+      <h2>Register</h2>
+  
+      <form>
+  
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+          />
+  
+          <p class="error">Email is required</p>
+          <p class="error">Invalid email format</p>
+        </div>
+  
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a password"
+          />
+  
+          <p class="error">Password is required</p>
+          <p class="error">Password must be at least 6 characters</p>
+        </div>
+  
+        <!-- Repeat Password -->
+        <div class="form-group">
+          <label for="rePass">Repeat Password</label>
+          <input
+            type="password"
+            id="rePass"
+            name="rePass"
+            placeholder="Repeat your password"
+          />
+  
+          <p class="error">Repeat password is required</p>
+        </div>
+  
+        <!-- Password mismatch -->
+        <p class="error">Passwords do not match</p>
+  
+        <!-- Submit -->
+        <button type="submit">Register</button>
+  
+      </form>
+  
+      <p class="switch">
+        Already have an account?
+        <a href="/login">Login here</a>
+      </p>
+    </div>
+  </section>
