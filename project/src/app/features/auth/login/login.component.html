@@ -47,13 +47,13 @@
             }
 
             <!-- Submit -->
-            <button type="submit">Login</button>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
 
         </form>
 
         <p class="switch">
             Don't have an account?
-            <a href="/register">Register here</a>
+            <a routerLink="/register">Register here</a>
         </p>
     </div>
 </section>
