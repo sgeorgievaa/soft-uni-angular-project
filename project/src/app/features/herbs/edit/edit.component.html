@@ -1,1 +1,84 @@
-<p>edit works!</p>
+<section class="create-container">
+
+    @if (!herb) {
+      <p>Loading...</p>
+    } @else {
+  
+      <div class="create-box">
+        <h2>Edit Herb</h2>
+  
+        <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+  
+          <!-- Name -->
+          <div class="form-group">
+            <label>Herb Name</label>
+            <input
+              type="text"
+              name="name"
+              [ngModel]="herb.name"
+              required
+              #inputName="ngModel"
+            />
+  
+            @if (inputName.touched && inputName.errors?.['required']) {
+              <p class="error">Name is required</p>
+            }
+          </div>
+  
+          <!-- Image -->
+          <div class="form-group">
+            <label>Image URL</label>
+            <input
+              type="text"
+              name="imageUrl"
+              [ngModel]="herb.imageUrl"
+              required
+              #inputImage="ngModel"
+            />
+  
+            @if (inputImage.touched && inputImage.errors?.['required']) {
+              <p class="error">Image URL is required</p>
+            }
+          </div>
+  
+          <!-- Benefits -->
+          <div class="form-group">
+            <label>Benefits</label>
+            <textarea
+              name="benefits"
+              [ngModel]="herb.benefits"
+              required
+              #inputBenefits="ngModel"
+            ></textarea>
+  
+            @if (inputBenefits.touched && inputBenefits.errors?.['required']) {
+              <p class="error">Benefits are required</p>
+            }
+          </div>
+  
+          <!-- Usage -->
+          <div class="form-group">
+            <label>Usage</label>
+            <textarea
+              name="usage"
+              [ngModel]="herb.usage"
+              required
+              #inputUsage="ngModel"
+            ></textarea>
+  
+            @if (inputUsage.touched && inputUsage.errors?.['required']) {
+              <p class="error">Usage is required</p>
+            }
+          </div>
+  
+          <!-- Submit -->
+          <button type="submit" [disabled]="editForm.invalid">
+            Save Changes
+          </button>
+  
+        </form>
+      </div>
+  
+    }
+  
+  </section>
