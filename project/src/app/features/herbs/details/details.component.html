@@ -1,1 +1,40 @@
-<p>details works!</p>
+<section class="details-container">
+
+    @if (!herb) {
+      <p>Loading...</p>
+    } @else {
+  
+      <div class="details-card">
+  
+        <img [src]="herb.imageUrl" alt="{{ herb.name }}" />
+  
+        <h2>{{ herb.name }}</h2>
+  
+        <div class="info">
+          <h4>Benefits</h4>
+          <p>{{ herb.benefits }}</p>
+        </div>
+  
+        <div class="info">
+          <h4>Usage</h4>
+          <p>{{ herb.usage }}</p>
+        </div>
+  
+        <!-- Owner actions -->
+        @if (isOwner) {
+          <div class="actions">
+            <a [routerLink]="['/edit', herb.id]" class="btn edit">
+              Edit
+            </a>
+  
+            <button class="btn delete" (click)="onDelete()">
+              Delete
+            </button>
+          </div>
+        }
+  
+      </div>
+  
+    }
+  
+  </section>

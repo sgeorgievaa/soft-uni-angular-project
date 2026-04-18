@@ -1,0 +1,52 @@
+.details-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+  }
+  
+  .details-card {
+    width: 600px;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .details-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .info {
+    margin: 1rem 0;
+    text-align: left;
+  }
+  
+  .actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: solid;
+    color: white;
+  }
+  
+  .edit {
+    background: #84D3C9;
+   
+  }
+  
+  .delete {
+    background: #4F3C47;
+    border: none;
+  }
