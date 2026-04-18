@@ -7,6 +7,8 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { CreateComponent } from './features/herbs/create/create.component';
 import { EditComponent } from './features/herbs/edit/edit.component';
 import { DashboardComponent } from './features/dashboard/dashboard/dashboard.component';
+import { guestGuard } from './guards/guest.guard';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     //public
@@ -14,13 +16,13 @@ export const routes: Routes = [
     { path: 'catalog', component: CatalogComponent },
     { path: 'catalog/:id', component: DetailsComponent },
     
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent, canActivate: [guestGuard] },
+    { path: 'register', component: RegisterComponent, canActivate: [guestGuard] },
 
     //private
-    { path: 'create', component: CreateComponent },
-    { path: 'edit/:id', component: EditComponent },
-    { path: 'dashboard', component: DashboardComponent },
+    { path: 'create', component: CreateComponent, canActivate: [authGuard] },
+    { path: 'edit/:id', component: EditComponent, canActivate: [authGuard] },
+    { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
 
     { path: '**', redirectTo: '' }
 

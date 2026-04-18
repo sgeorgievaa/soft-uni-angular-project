@@ -13,12 +13,18 @@
     <nav id="nav">
         <ul>
           <li><a routerLink="/" class="button primary">Home</a></li>
-          <li><a routerLink="/login" class="button primary">Login</a></li>
-          <li><a routerLink="/register" class="button primary">Register</a></li>
           <li><a routerLink="/catalog" class="button primary">Catalog</a></li>
-          <li><a routerLink="/dashboard" class="button primary">Dashborad</a></li>
-          <li><a routerLink="/create" class="button primary">Add Herb</a></li>
-          <li><a href="#" class="button primary">Logout</a></li>
+         
+         @if(!isLoggedIn()){
+           <li><a routerLink="/login" class="button primary">Login</a></li>
+           <li><a routerLink="/register" class="button primary">Register</a></li>
+          }
+
+          @if(isLoggedIn()) {
+            <li><a routerLink="/dashboard" class="button primary">Dashborad</a></li>
+            <li><a routerLink="/create" class="button primary">Add Herb</a></li>
+            <li><a (click)="logout()" class="button primary">Logout</a></li>
+          }
         </ul>
       </nav>
     

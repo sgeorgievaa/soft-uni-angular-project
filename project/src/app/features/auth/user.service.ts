@@ -23,6 +23,9 @@ export class UserService {
     users.push(user);
     localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
 
+    // to login automatically after register
+    localStorage.setItem(this.CURRENT_USER_KEY, JSON.stringify(user));
+
     return true;
   }
 
