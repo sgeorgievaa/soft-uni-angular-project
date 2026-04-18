@@ -2,7 +2,7 @@
     <div class="create-box">
       <h2>Add New Herb</h2>
   
-      <form>
+      <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
   
         <!-- Name -->
         <div class="form-group">
@@ -11,9 +11,17 @@
             type="text"
             id="name"
             name="name"
+            ngModel
+            required
+            #inputName="ngModel"
             placeholder="Enter herb name"
           />
-          <p class="error">Name is required</p>
+
+          @if(inputName?.touched){
+            @if(inputName?.errors?.['required']) {
+              <p class="error">Name is required</p>
+            }
+          }
         </div>
   
         <!-- Image URL -->
@@ -23,9 +31,18 @@
             type="text"
             id="imageUrl"
             name="imageUrl"
+            ngModel
+            required
+            #inputImage="ngModel"
             placeholder="Enter image URL"
           />
-          <p class="error">Image URL is required</p>
+         
+          @if (inputImage?.touched) {
+            @if (inputImage?.errors?.['required']) {
+              <p class="error">Image URL is required</p>
+            }
+          }
+
         </div>
   
         <!-- Benefits -->
@@ -34,10 +51,19 @@
           <textarea
             id="benefits"
             name="benefits"
+            ngModel
+            required
+            #inputBenefits="ngModel"
             rows="4"
             placeholder="Describe the benefits of this herb"
           ></textarea>
-          <p class="error">Benefits are required</p>
+          
+          @if (inputBenefits?.touched) {
+            @if (inputBenefits?.errors?.['required']) {
+              <p class="error">Benefits are required</p>
+            }
+          }
+
         </div>
   
         <!-- Usage -->
@@ -46,14 +72,23 @@
           <textarea
             id="usage"
             name="usage"
+            ngModel
+            required
+            #inputUsage="ngModel"
             rows="4"
             placeholder="How is this herb used?"
           ></textarea>
-          <p class="error">Usage is required</p>
+          
+          @if (inputUsage?.touched) {
+            @if (inputUsage?.errors?.['required']) {
+              <p class="error">Usage is required</p>
+            }
+          }
+
         </div>
   
         <!-- Submit -->
-        <button type="submit">Add Herb</button>
+        <button type="submit" [disabled]="createForm.invalid">Add Herb</button>
   
       </form>
     </div>
