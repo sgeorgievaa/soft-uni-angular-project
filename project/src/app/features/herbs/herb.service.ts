@@ -18,6 +18,13 @@ export class HerbService {
     return this.getHerbs().find(h => h.id === id);
   }
 
+  getLatest(count: number = 3): Herb[] {
+    return this.getHerbs()
+      .slice()
+      .sort((a, b) => Number(b.id) - Number(a.id))
+      .slice(0,count);
+  }
+
   create(herb: Herb) {
     const herbs = this.getHerbs();
     herbs.push(herb);
