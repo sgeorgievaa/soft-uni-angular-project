@@ -1,1 +1,29 @@
-<p>dashboard works!</p>
+<section class="catalog-container">
+    <h2>My Herbs</h2>
+  
+    @if (herbs.length === 0) {
+      <p class="no-data">You haven’t added any herbs yet 🌱</p>
+    } @else {
+  
+      <div class="card-container">
+        @for (herb of herbs; track herb.id) {
+          <div class="card">
+  
+            <img [src]="herb.imageUrl" alt="{{ herb.name }}" />
+  
+            <h3>{{ herb.name }}</h3>
+  
+            <p class="benefits">
+              {{ herb.benefits }}
+            </p>
+  
+            <a [routerLink]="['/catalog', herb.id]" class="details-btn">
+              Details
+            </a>
+  
+          </div>
+        }
+      </div>
+  
+    }
+  </section>
