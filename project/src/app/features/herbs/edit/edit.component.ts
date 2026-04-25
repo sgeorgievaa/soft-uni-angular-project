@@ -51,7 +51,7 @@ export class EditComponent implements OnInit {
         this.herb = herb;
       },
       error: () => {
-        this.router.navigate(['/catalog']);
+        this.errorMessage = 'Something went wrong. Please try again.d';
       }
     });
   }

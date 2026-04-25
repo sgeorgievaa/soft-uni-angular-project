@@ -19,13 +19,20 @@ export class CatalogComponent implements OnInit {
   searchTerm: string = '';
   hasSearched: boolean = false;
 
+  errorMessage: string = '';  
+
   constructor(private herbService: HerbService) {}
 
   ngOnInit(): void {
-    this.herbService.getAll().subscribe(herbs => {
+    this.herbService.getAll().subscribe({
+      next: herbs => {
       this.allHerbs = herbs;
       this.herbs = [...herbs];
-    });
+      },
+      error: (err) => {
+        this.errorMessage = err.message;
+      }
+  });
   }
 
   onSearch(): void {

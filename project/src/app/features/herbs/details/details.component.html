@@ -1,5 +1,9 @@
 <section class="details-container">
 
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
     @if (!herb) {
       <p>Loading...</p>
     } @else {

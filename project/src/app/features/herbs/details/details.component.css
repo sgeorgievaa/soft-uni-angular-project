@@ -64,3 +64,11 @@
   button.btn {
     font-family: inherit;
   }
+
+  .error {
+    color: #b30000;
+    background: #ffe0e0;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }

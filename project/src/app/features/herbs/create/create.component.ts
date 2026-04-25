@@ -14,6 +14,8 @@ import { Herb } from '../../../types/herb';
 })
 export class CreateComponent {
 
+  errorMessage = '';
+
   constructor(
     private herbService: HerbService,
     private authService: UserService,
@@ -32,8 +34,14 @@ export class CreateComponent {
       ownerId: currentUser?.email || ''
     };
 
-    this.herbService.create(newHerb).subscribe(() => {
-      this.router.navigate(['/catalog']);
+    this.herbService.create(newHerb).subscribe( {
+      next: () => {
+        this.router.navigate(['/catalog']);
+      },
+      error: () => {
+        this.errorMessage = 'Failed to create herb. Please try again.';
+        
+      }
     });
 
     form.reset();

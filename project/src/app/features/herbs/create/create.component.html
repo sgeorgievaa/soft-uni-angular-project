@@ -3,6 +3,10 @@
       <h2>Add New Herb</h2>
   
       <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
+
+        @if (errorMessage) {
+          <p class="error">{{ errorMessage }}</p>
+        }
   
         <!-- Name -->
         <div class="form-group">

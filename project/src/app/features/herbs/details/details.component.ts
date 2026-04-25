@@ -16,6 +16,8 @@ export class DetailsComponent  implements OnInit{
   herb: Herb | undefined;
   isOwner = false;
 
+  errorMessage = '';
+
   constructor(
     private route: ActivatedRoute,
     private herbService: HerbService,
@@ -44,7 +46,7 @@ export class DetailsComponent  implements OnInit{
         this.isOwner = currentUser?.email === herb.ownerId;
       },
       error: () => {
-        this.router.navigate(['/catalog']);
+        this.errorMessage = 'Failed to load herb. Please try again.';
       }
     });
   }
@@ -61,7 +63,8 @@ export class DetailsComponent  implements OnInit{
           this.router.navigate(['/catalog']);
         },
         error: () => {
-          console.error('Delete failed');
+          this.errorMessage = 'Failed to delete herb. Please try again.';
+          
         }
       });
     }
