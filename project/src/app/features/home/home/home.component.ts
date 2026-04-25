@@ -18,7 +18,12 @@ export class HomeComponent implements OnInit {
   constructor(private herbServive: HerbService) {}
 
   ngOnInit(): void {
-    this.latestHerbs = this.herbServive.getLatest(3);
+    this.herbServive.getAll().subscribe(herbs => {
+      this.latestHerbs = herbs
+        .slice()
+        .sort((a, b) => Number(b.id) - Number(a.id))
+        .slice(0, 3);
+    });
   }
 
 }

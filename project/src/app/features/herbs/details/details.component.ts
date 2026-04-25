@@ -25,21 +25,28 @@ export class DetailsComponent  implements OnInit{
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-
-    if (!id) return;
-
-    const foundHerb = this.herbService.getOne(id);
-
-    if(!foundHerb) {
+    
+    if (!id) {
       this.router.navigate(['/catalog']);
       return;
     }
 
-    this.herb = foundHerb;
+    this.herbService.getOne(id).subscribe({
+      next: (herb) => {
+        if (!herb) {
+          this.router.navigate(['/catalog']);
+          return;
+        }
 
-    const currentUser = this.authService.getCurrentUser();
-  
-    this.isOwner = currentUser?.email === this.herb.ownerId;
+        this.herb = herb;
+
+        const currentUser = this.authService.getCurrentUser();
+        this.isOwner = currentUser?.email === herb.ownerId;
+      },
+      error: () => {
+        this.router.navigate(['/catalog']);
+      }
+    });
   }
 
     onDelete(): void {
@@ -49,8 +56,14 @@ export class DetailsComponent  implements OnInit{
 
       if(!confirmDelete) return;
   
-      this.herbService.delete(this.herb.id);
-      this.router.navigate(['/catalog']);
+      this.herbService.delete(this.herb.id).subscribe({
+        next: () => {
+          this.router.navigate(['/catalog']);
+        },
+        error: () => {
+          console.error('Delete failed');
+        }
+      });
     }
   
   }

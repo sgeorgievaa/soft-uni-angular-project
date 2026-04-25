@@ -17,17 +17,24 @@ export class CatalogComponent implements OnInit {
   allHerbs: Herb[] = [];
 
   searchTerm: string = '';
+  hasSearched: boolean = false;
 
   constructor(private herbService: HerbService) {}
 
   ngOnInit(): void {
-    this.allHerbs = this.herbService.getAll();
-    this.herbs = [...this.allHerbs];
+    this.herbService.getAll().subscribe(herbs => {
+      this.allHerbs = herbs;
+      this.herbs = [...herbs];
+    });
   }
 
   onSearch(): void {
+    this.hasSearched = true;
+
     const term = this.searchTerm.toLowerCase();
 
-    this.herbs = this.allHerbs.filter(h => h.name.toLowerCase().includes(term));
+    this.herbs = this.allHerbs.filter(h =>
+      h.name.toLowerCase().includes(term)
+    );
   }
 }

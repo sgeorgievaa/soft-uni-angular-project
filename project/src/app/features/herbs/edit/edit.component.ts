@@ -33,21 +33,27 @@ export class EditComponent implements OnInit {
       return;
     }
 
-    const foundHerb = this.herbService.getOne(id);
+    this.herbService.getOne(id).subscribe({
+      next: (herb) => {
+        if (!herb) {
+          this.router.navigate(['/catalog']);
+          return;
+        }
 
-    if (!foundHerb) {
-      this.router.navigate(['/catalog']);
-      return;
-    }
+        const currentUser = this.authService.getCurrentUser();
 
-    const currentUser = this.authService.getCurrentUser();
+      
+        if (currentUser?.email !== herb.ownerId) {
+          this.router.navigate(['/catalog']);
+          return;
+        }
 
-    if (currentUser?.email !== foundHerb.ownerId) {
-      this.router.navigate(['/catalog']);
-      return;
-    }
-
-    this.herb = foundHerb;
+        this.herb = herb;
+      },
+      error: () => {
+        this.router.navigate(['/catalog']);
+      }
+    });
   }
 
   onSubmit(form: NgForm): void {
@@ -58,9 +64,14 @@ export class EditComponent implements OnInit {
       ...form.value
     };
 
-    this.herbService.update(this.herb.id, updatedHerb);
-
-    this.router.navigate(['/catalog', this.herb.id]);
+    this.herbService.update(this.herb.id, updatedHerb).subscribe({
+      next: () => {
+        this.router.navigate(['/catalog', this.herb!.id]);
+      },
+      error: () => {
+        this.errorMessage = 'Something went wrong. Please try again.';
+      }
+    });
   }
 
 }

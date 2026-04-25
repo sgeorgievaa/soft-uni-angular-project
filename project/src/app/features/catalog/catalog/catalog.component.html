@@ -10,7 +10,9 @@
       />
     </div>
 
-    @if (herbs.length === 0) {
+    @if (herbs.length === 0 && hasSearched) {
+      <p>No results found.</p>
+    } @else if (herbs.length === 0) {
       <p class="no-data">No herbs yet. Be the first to add one.</p>
     } @else {
   

@@ -25,11 +25,11 @@ export class DashboardComponent implements OnInit {
 
     if(!currentUser) return;
 
-    const allHerbs = this.herbService.getAll();
-
-    this.herbs = allHerbs.filter(
-      h => h.ownerId === currentUser.email
-    );
+    this.herbService.getAll().subscribe(herbs => {
+      this.herbs = herbs.filter(
+        h => h.ownerId === currentUser.email
+      );
+    });
   }
 
 }

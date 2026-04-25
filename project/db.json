@@ -1,0 +1,44 @@
+{
+  "herbs": [
+    {
+      "id": 1,
+      "name": "Mint",
+      "benefits": "Helps digestion and relieves headaches",
+      "usage": "Used in teas, oils, and cooking",
+      "imageUrl": "https://images.unsplash.com/photo-1622576454275-729fbf6aa6eb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "ownerId": "ana@abv.bg"
+    },
+    {
+      "id": 2,
+      "name": "Lavender",
+      "benefits": "Reduces stress and improves sleep",
+      "usage": "Used in aromatherapy and oils",
+      "imageUrl": "https://images.unsplash.com/photo-1445510491599-c391e8046a68?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "ownerId": "ana@abv.bg"
+    },
+    {
+      "id": 3,
+      "name": "Chamomile",
+      "benefits": "Calms nerves and helps with sleep",
+      "usage": "Commonly used as tea",
+      "imageUrl": "https://images.unsplash.com/photo-1624041755997-393bd6b31f05?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "ownerId": "ana@abv.bg"
+    },
+    {
+      "name": "Burdock",
+      "imageUrl": "https://images.unsplash.com/photo-1626643288295-b3d2c2237970?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "benefits": "Regulate pathways and proteins that drive inflammation.\nProtect cells from damage.\nBoost immune cells that can help fight cancer and slow tumor growth.\nHelp regulate blood sugar and insulin levels.\nDecrease body weight.\nLimit the growth of bacteria and yeast.",
+      "usage": "To cook burdock root, you'll first need to peel it. You can then fry, boil, or sauté it. Recipes you can try include: Japanese sautéed and braised burdock root.",
+      "ownerId": "bobi@abv.bg",
+      "id": 4
+    },
+    {
+      "name": "Neem",
+      "imageUrl": "https://images.unsplash.com/photo-1564505676257-57af8f7e43ab?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "benefits": "The leaf extract is used to reduce tooth plaque and to treat lice. Neem contains chemicals that might help reduce blood sugar levels, heal ulcers in the digestive tract, prevent pregnancy, kill bacteria, and prevent plaque from forming in the mouth.",
+      "usage": "Neem oil is a natural, organic pesticide for plants, typically used by mixing 1-2 teaspoons of cold-pressed neem oil and a few drops of mild liquid soap into 1 gallon of warm water. Spray it directly onto leaves (top and bottom) weekly to control bugs like aphids and spider mites, avoiding application in direct sun to prevent leaf burn.",
+      "ownerId": "bobi@abv.bg",
+      "id": 5
+    }
+  ]
+}

@@ -23,24 +23,20 @@ export class CreateComponent {
   onSubmit(form: NgForm): void {
     if(form.invalid) return;
 
-    const { name, benefits, usage, imageUrl } = form.value;
+    // const { name, benefits, usage, imageUrl } = form.value;
 
     const currentUser = this.authService.getCurrentUser();
 
     const newHerb: Herb = {
-      id: Date.now().toString(),
-      name,
-      benefits,
-      usage,
-      imageUrl,
+      ...form.value,
       ownerId: currentUser?.email || ''
     };
 
-    this.herbService.create(newHerb);
+    this.herbService.create(newHerb).subscribe(() => {
+      this.router.navigate(['/catalog']);
+    });
 
     form.reset();
-
-    this.router.navigate(['/catalog']);
   }
 
 }
