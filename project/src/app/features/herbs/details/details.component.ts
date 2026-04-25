@@ -44,6 +44,10 @@ export class DetailsComponent  implements OnInit{
 
     onDelete(): void {
       if (!this.herb) return;
+
+      const confirmDelete = confirm('Are you sure you want to delete this herb?');
+
+      if(!confirmDelete) return;
   
       this.herbService.delete(this.herb.id);
       this.router.navigate(['/catalog']);
