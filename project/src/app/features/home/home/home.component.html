@@ -101,7 +101,9 @@
                   <h3>{{ herb.name }}</h3>
         
                   <p class="benefits">
-                    {{ herb.benefits }}
+                    {{ herb.benefits.length > 60 
+                        ? (herb.benefits | slice:0:60) + '...' 
+                        : herb.benefits }}
                   </p>
         
                   <a [routerLink]="['/catalog', herb.id]" class="details-btn">
