@@ -7,11 +7,18 @@ To run the application locally:
 2. Install dependencies:
    npm install
 
-3. Start the application:
-   ng serve
+3. Start the backend (json-server)
+json-server --watch db.json
 
-4. Open your browser and go to:
-   http://localhost:4200/
+The server will run at:
+http://localhost:3000/
+
+4. Start the Angular application
+ng serve
+
+5. Open the app
+http://localhost:4200/
+
 
 # Functional Guide
 
