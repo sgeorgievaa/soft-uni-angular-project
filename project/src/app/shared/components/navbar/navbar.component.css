@@ -85,4 +85,9 @@ ul.buttons {
             padding: 0;
         }
 
+.user-profile-btn {
+    color: black;
+    font-size: 0.8em;
+    background-color: #F4F6FA;
+}
         

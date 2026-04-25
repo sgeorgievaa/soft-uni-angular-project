@@ -24,6 +24,9 @@
             <li><a routerLink="/dashboard" class="button primary">Dashborad</a></li>
             <li><a routerLink="/create" class="button primary">Add Herb</a></li>
             <li><a (click)="logout()" class="button primary">Logout</a></li>
+            <li class="user-profile-btn">
+              <a routerLink="/dashboard">{{ username }}'s profile</a>
+            </li>
           }
         </ul>
       </nav>

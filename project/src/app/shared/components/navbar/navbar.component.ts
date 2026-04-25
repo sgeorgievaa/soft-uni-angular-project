@@ -23,4 +23,8 @@ export class NavbarComponent {
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
+
+  get username(): string {
+    return this.authService.getCurrentUser()?.email || '';
+  }
 }
