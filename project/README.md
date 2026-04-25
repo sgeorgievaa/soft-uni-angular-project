@@ -8,17 +8,21 @@ To run the application locally:
    npm install
 
 3. Start the backend (json-server)
-json-server --watch db.json
+    json-server --watch db.json
 
-The server will run at:
-http://localhost:3000/
+    The server will run at:
+    http://localhost:3000/
 
 4. Start the Angular application
-ng serve
+    ng serve
 
-5. Open the app
-http://localhost:4200/
+5. Open the app in your browser:
+    http://localhost:4200/
 
+    Notes:
+    - The backend is simulated using json-server.
+    - Data is stored in the db.json file.
+    - Both the backend and frontend must be running simultaneously.
 
 # Functional Guide
 
