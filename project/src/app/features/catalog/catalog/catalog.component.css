@@ -14,6 +14,11 @@
   }
   
   .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
     background: #ffffff;
     border-radius: 10px;
     padding: 1rem;
@@ -36,6 +41,7 @@
     font-size: 0.9rem;
     color: #555;
     margin-bottom: 1rem;
+    min-height: 60px;
   }
   
   .details-btn {
@@ -45,6 +51,7 @@
     color: white;
     border-radius: 5px;
     text-decoration: none;
+    align-self: center;
   }
   
   .details-btn:hover {

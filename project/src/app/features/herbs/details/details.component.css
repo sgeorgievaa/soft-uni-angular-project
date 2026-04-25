@@ -43,10 +43,24 @@
   
   .edit {
     background: #84D3C9;
+    font-family: inherit;
+    line-height: normal;
+
+
    
   }
   
   .delete {
     background: #4F3C47;
     border: none;
+  }
+
+  a.btn {
+    line-height: normal;
+    font-family: inherit;
+    padding: 1.5em;
+  }
+  
+  button.btn {
+    font-family: inherit;
   }
