@@ -1,8 +1,17 @@
   <section class="catalog-container">
     <h2>Herbs Catalog</h2>
   
+    <div class="search-box">
+      <input 
+        type="text"
+        placeholder="Search herb..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+      />
+    </div>
+
     @if (herbs.length === 0) {
-      <p class="no-data">No herbs yet. Be the first to add one 🌱</p>
+      <p class="no-data">No herbs yet. Be the first to add one.</p>
     } @else {
   
       <div class="card-container">
