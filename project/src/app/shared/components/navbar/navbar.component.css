@@ -12,6 +12,8 @@
     color: #737070;
 }
 
+
+
 #header nav ul li.submenu > a {
 	text-decoration: none;
 }
@@ -85,7 +87,9 @@ ul.buttons {
             padding: 0;
         }
 
+
 .user-profile-btn {
+    border-radius: 5px;
     color: black;
     font-size: 0.8em;
     background-color: #F4F6FA;

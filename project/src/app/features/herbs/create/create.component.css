@@ -57,6 +57,10 @@
   button:hover {
     background: #84D3C9;
   }
+
+  button:disabled {
+    background: #ccc;
+  }
   
   .error {
     color: red;

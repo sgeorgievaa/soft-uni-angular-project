@@ -27,7 +27,11 @@
               Edit
             </a>
   
-            <button class="btn delete" (click)="onDelete()">
+            <button 
+              class="btn delete" 
+              (click)="onDelete()"
+              [disabled]="!isOwner"
+            >
               Delete
             </button>
           </div>

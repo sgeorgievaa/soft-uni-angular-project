@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { Herb } from '../../../types/herb';
 import { HerbService } from '../../herbs/herb.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.css'
 })
